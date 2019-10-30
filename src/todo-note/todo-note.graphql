@@ -1,0 +1,52 @@
+enum Status {
+  PENDING
+  COMPLETED
+  CLEARED
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Node {
+  totalCount: Int!,
+  nodes: [TodoNote]
+}
+
+type TodoNoteFeed {
+  pageInfo: PageInfo!
+  node: Node!
+}
+
+type TodoNote {
+    id: Int!,
+    note: String!,
+    isCompleted: Boolean!,
+    isCleared: Boolean!
+}
+
+type Query {
+  todoNotes(first: Int, after: Int, status: Status): TodoNoteFeed
+}
+
+input CreateTodoNoteInput {
+  note: String!
+  isCompleted: Boolean
+  isCleared: Boolean
+}
+
+input UpdateTodoNoteInput {
+  id: Int!
+  note: String
+  isCompleted: Boolean
+  isCleared: Boolean
+}
+
+type Mutation {
+  createTodoNote(input: CreateTodoNoteInput!): TodoNote
+  updateTodoNote(input: UpdateTodoNoteInput!): TodoNote
+  clearCompleted: Boolean
+}
