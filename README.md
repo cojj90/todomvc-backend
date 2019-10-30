@@ -7,6 +7,18 @@ This is a simple backend for [todomvc](http://todomvc.com/examples/react) app.
 $ npm install
 ```
 
+## DB Configuration
+Please configure following enviroment variables to establish a database connection.
+
+```command
+DB_TYPE (default: 'mysql')
+DB_HOST (default: 'localhost')
+DB_PORT (default: 3306)
+DB_USERNAME (default: 'root')
+DB_PASSWORD (default: '')
+DB_DATABASE (default: 'test')
+```
+
 ## Running the app
 
 ```bash
