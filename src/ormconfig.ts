@@ -15,7 +15,7 @@ const config: ConnectionOptions = {
         migrations: [join(__dirname, 'migrations/**/*{.ts,.js}')],
         cli: {
                 migrationsDir: 'src/migrations',
-        }
+        },
 }
 
 export = config
